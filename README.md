@@ -1,1 +1,116 @@
 # quiz-application
+
+ #include<iostream>
+#include<string>
+using namespace std;
+
+class Quiz
+{
+private:
+    string name;
+    int score;
+    int n;
+
+public:
+    Quiz()
+    {
+        score = 0;
+        n = 5;
+    }
+
+    void startQuiz()
+    {
+        cout<<"==========================="<<endl;
+        cout<<"  MY QUIZ PROGRAM"<<endl;
+        cout<<"==========================="<<endl;
+
+        cout<<"\nenter name : ";
+        cin>>name;
+
+        cout<<"hello "<<name<<" !"<<endl;
+        cout<<"total "<<n<<" questions , 1 mark each"<<endl;
+        cout<<"press enter to start"<<endl;
+        cin.ignore();
+        cin.get();
+
+        askQuestions();
+        showResult();
+    }
+
+    void askQuestions()
+    {
+        int ans;
+
+        // Q1
+        cout<<"\nQ1) what is size of int ?"<<endl;
+        cout<<"1. 1 byte\n2. 2 byte\n3. 4 byte\n4. 8 byte\nans : ";
+        cin>>ans;
+        if(ans==3){ cout<<"correct !!"<<endl; score++; }
+        else cout<<"wrong , ans is 3"<<endl;
+
+        // Q2
+        cout<<"\nQ2) c++ was made by ?"<<endl;
+        cout<<"1. dennis ritchie\n2. bjarne stroustrup\n3. james gosling\n4. elon musk\nans : ";
+        cin>>ans;
+        if(ans==2){ cout<<"correct !!"<<endl; score++; }
+        else cout<<"wrong , ans is 2"<<endl;
+
+        // Q3
+        cout<<"\nQ3) which is not a loop in c++ ?"<<endl;
+        cout<<"1. for\n2. while\n3. repeat\n4. do while\nans : ";
+        cin>>ans;
+        if(ans==3){ cout<<"correct !!"<<endl; score++; }
+        else cout<<"wrong , ans is 3"<<endl;
+
+        // Q4
+        cout<<"\nQ4) output of cout<<10/3 ?"<<endl;
+        cout<<"1. 3.33\n2. 3\n3. 4\n4. error\nans : ";
+        cin>>ans;
+        if(ans==2){ cout<<"correct !!"<<endl; score++; }
+        else cout<<"wrong , ans is 2"<<endl;
+
+        // Q5
+        cout<<"\nQ5) header file for cout and cin ?"<<endl;
+        cout<<"1. stdio.h\n2. math.h\n3. iostream\n4. string.h\nans : ";
+        cin>>ans;
+        if(ans==3){ cout<<"correct !!"<<endl; score++; }
+        else cout<<"wrong , ans is 3"<<endl;
+    }
+
+    void showResult()
+    {
+        cout<<"\n==========================="<<endl;
+        cout<<"result"<<endl;
+        cout<<"==========================="<<endl;
+
+        cout<<"name  = "<<name<<endl;
+        cout<<"score = "<<score<<"/"<<n<<endl;
+
+        float p = (score * 100.0) / n;
+        cout<<"percent = "<<p<<"%"<<endl;
+
+        if(p==100)
+            cout<<"grade = A+"<<endl;
+        else if(p>=80)
+            cout<<"grade = A"<<endl;
+        else if(p>=60)
+            cout<<"grade = B"<<endl;
+        else if(p>=40)
+            cout<<"grade = C"<<endl;
+        else
+            cout<<"grade = F"<<endl;
+
+        cout<<"\nbye "<<name<<endl;
+    }
+};
+
+int main()
+{
+    Quiz q;      // object creation
+    q.startQuiz();  // calling function
+
+    return 0;
+}
+
+
+
